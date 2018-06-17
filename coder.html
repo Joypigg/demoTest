@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link type="text/css" rel="stylesheet" href="css/main.css">
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background: aqua;
+            transition: width 2s, height 2s;
+            -moz-transition: width 2s, height 2s, -moz-transform 2s; /* Firefox 4 */
+            -webkit-transition: width 2s, height 2s, -webkit-transform 2s; /* Safari and Chrome */
+            -o-transition: width 2s, height 2s, -o-transform 2s; /* Opera */
+        }
+/*控制上面的行为变化,翻转360度,宽高变为300px*/
+        div:hover {
+            width: 300px;
+            height: 300px;
+            -webkit-transform: rotate(360deg);
+            -moz-transform: rotate(360deg);
+            -ms-transform: rotate(360deg);
+            -o-transform: rotate(360deg);
+            transform: rotate(360deg);
+        }
+    </style>
+</head>
+<body class="p">
+<!--不可省略-->
+<div></div>
+</body>
+</html>
