@@ -1,9 +1,12 @@
 form{
     padding: 10px 10px 10px 10px;
-    border: double;
     /*将边框设为实线或者双线然后利用浏览器Select功能即可查看*/
     margin: 10px 10px 10px 10px;
+    border-color: transparent;
+    border-width: 10px 20px;
+    border-style: solid;
 }
+form:hover {border-color: gray;}
 /*属性选择器*/
 input[type="text"]{
     width:150px;
