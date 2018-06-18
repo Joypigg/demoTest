@@ -1,0 +1,21 @@
+form{
+    padding: 10px 10px 10px 10px;
+    border: double;
+    /*将边框设为实线或者双线然后利用浏览器Select功能即可查看*/
+    margin: 10px 10px 10px 10px;
+}
+/*属性选择器*/
+input[type="text"]{
+    width:150px;
+    text-align: left;
+    display: block;
+    background: aqua;
+    margin-bottom:10px;
+    font-family: Verdana, Arial;
+}
+input[type="button"] {
+    width: 120px;
+    margin-left: 35px;
+    display: block;
+    font-family: Verdana, Arial;
+}
