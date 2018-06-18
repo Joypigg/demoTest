@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+    <script>
+        //序列化
+        var xiaoming = {
+            name: '小明',
+            age: 14,
+            gender: true,
+            height: 1.65,
+            grade: null,
+            'middle-school': '\"W3C\" Middle School',
+            skills: ['JavaScript', 'Java', 'Python', 'Lisp'],
+            //序列化指定属性列
+           toJSON:function () {
+               return {
+                   "Name":this.name,
+                   "Age":this.age,
+                   'middle-school':this["middle-school"],
+                   'skills':this.skills,
+               };
+           }
+        };
+        function convert(key, value) {
+            if (typeof value === 'string') {
+                return value.toUpperCase();
+            }
+            return value;
+        }
+        //参数1：待序列化对象，参数2：函数/对象属性，参数3：格式化符号
+        var s=JSON.stringify(xiaoming,convert," ");
+        console.log(s);
+        console.log(JSON.parse('[1,2,3,true]'));
+
+        var obj = JSON.parse('{"name":"小明","age":14}', function (key, value) {
+            if (key === 'name') {
+                return value + '同学';
+            }
+            return value;
+        });
+        console.log(JSON.stringify(obj)); // {"name": '小明同学', "age": 14}
+    </script>
+    <script>
+        //天气API
+        var url = 'https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20%3D%202151330&format=json';
+        $.getJSON(url, function (data) {
+            // 获取结果:
+            var city = data.query.results.channel.location.city;
+            var forecast = data.query.results.channel.item.forecast;
+            var a=data.query.results.channel.wind;
+            var result = {
+                city: city,
+                wind:a,
+                forecast: forecast,
+                toJSON:function () {
+                    return {
+                        city:this.city,
+                        wind:this.wind,
+                        forecast:this.forecast[0],
+                    };
+                }
+            };
+            console.log(JSON.stringify(result, null, '  '));
+        });
+    </script>
+</body>
+</html>
