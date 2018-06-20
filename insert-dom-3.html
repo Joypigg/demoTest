@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--<style type="text/css">
+        p{
+            color: blue;
+        }
+    </style>-->
+</head>
+<body>
+<p id="js">JavaScript</p>
+<div id="list">
+    <p id="java">Java</p>
+    <p id="python">Python</p>
+    <p id="scheme">Scheme</p>
+</div>
+</body>
+<script>
+    //=============appendChild===================
+    var js = document.getElementById('js');
+    var list = document.getElementById("list");
+    list.appendChild(js);
+    var haskell = document.createElement('p');
+    haskell.id = 'haskell';  //添加id
+    haskell.innerText = 'haskell';//添加value
+    list.appendChild(haskell);//追加到末尾元素
+</script>
+<script>
+    //createElement-setAttribute-innerHTML-appendChild-cloneNode
+    var style = document.createElement("style");
+    style.setAttribute('type', 'text/css');//设置属性
+    style.innerHTML = 'p {color: red}';//添加value
+    console.log(document.getElementsByTagName('head').item(0))//[0]必须
+    document.getElementsByTagName('head').item(0).appendChild(style);//追加到head元素末尾
+    var a=document.getElementsByTagName('head')[0].cloneNode(false);//只克隆节点，子节点不克隆
+    console.log(a);
+</script>
+<script>
+    //insertBefore
+    var js = document.getElementById('js');
+    var list = document.getElementById("list");
+    var p=document.createElement('p');
+    p.id='lj';
+    p.setAttribute('name','lijian');
+    p.setAttribute('age','24');
+    p.innerText='李剑啊';
+    list.insertBefore(p,js);
+</script>
+</html>
