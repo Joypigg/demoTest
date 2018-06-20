@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form id="test-register" action="#" target="_blank" onsubmit="return checkRegisterForm()">
+    <p id="test-error" style="color:red"></p>
+    <p>
+        用户名: <input type="text" id="username" name="username">
+    </p>
+    <p>
+        口令: <input type="password" id="password" name="password">
+    </p>
+    <p>
+        重复口令: <input type="password" id="password-2">
+    </p>
+    <p>
+        <button type="submit">提交</button>
+        <button type="reset">重置</button>
+    </p>
+</form>
+</body>
+<script>
+    var username = document.getElementById("username");
+    var pwd = document.getElementById("password");
+    var pwd2 = document.getElementById("password-2");
+    var error = document.getElementById('test-error');
+    //function checkRegisterForm  错误
+    var checkRegisterForm=function () {
+        if(!new RegExp(/\w{3,10}/).test(username.value)){
+            error.innerText = 'error name';
+            return false;
+        }
+        if(!new RegExp(/\S{6,20}/).test(pwd.value)){
+            error.innerText = 'error pwd';
+            return false;
+        }
+        if(pwd.value !== pwd2.value){
+            error.innerText = 'error pwd2';
+            return false;
+        }
+        return true;
+    }
+</script>
+</html>
